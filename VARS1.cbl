@@ -3,7 +3,9 @@
             DATA DIVISION.
               WORKING-STORAGE SECTION.
               01 ALPHA   PIC X(4).
-              01 BETA   PIC X(4) VALUE "Now is the time". *> Noncompliant. Becomes "Now ", but no issue raised
+              01 BETA   PIC X(4) VALUE "Now is the time". *> cobol:S3921 FN
             PROCEDURE DIVISION.
-              MOVE "Now is the time" TO ALPHA *> Noncompliant. Becomes "Now "
+              MOVE "Now is the time" TO ALPHA *> cobol:S3921 TP
+              DISPLAY ALPHA.
+              DISPLAY BETA.
               STOP RUN.
